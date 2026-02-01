@@ -104,6 +104,26 @@
             min-width: 10ch;
             min-height: 1em;
         }
+
+        .reviews-slider {
+            overflow: hidden;
+        }
+
+        .reviews-track > .review-card {
+            min-width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-track > .review-card {
+                min-width: calc((100% - 12px) / 2);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .reviews-track > .review-card {
+                min-width: calc((100% - 48px) / 3);
+            }
+        }
     </style>
 </head>
 
@@ -136,10 +156,10 @@
                     <i data-lucide="menu" class="menu-icon w-5 h-5"></i>
                     <i data-lucide="x" class="close-icon w-5 h-5 hidden"></i>
                 </button>
-                <button
+                <a href="tel:+1613234567"
                     class="bg-white text-zinc-950 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-zinc-200 transition-all">
                     Call now
-                </button>
+                </a>
             </div>
         </div>
         <div class="mobile-nav hidden md:hidden border-t border-white/10 bg-zinc-950/70 backdrop-blur-2xl rounded-b-2xl">
@@ -173,14 +193,14 @@
                     service, trusted by homeowners across Lancashire.
                 </p>
                 <div class="hero-buttons-group flex items-center gap-4">
-                    <button
+                    <a href="#quote"
                         class="bg-white text-zinc-950 px-6 py-3 rounded-full text-sm font-medium hover:bg-zinc-200 transition-all flex items-center gap-2">
                         Get a quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                    <button
+                    </a>
+                    <a href="#services"
                         class="border border-zinc-800 text-zinc-300 px-6 py-3 rounded-full text-sm font-medium hover:bg-zinc-900 hover:text-white transition-all">
                         View services
-                    </button>
+                    </a>
                 </div>
             </div>
             <div
@@ -398,12 +418,12 @@
                 </div>
 
                 <div class="mt-10 flex gap-4">
-                    <button
+                    <a href="#gallery"
                         class="results-btn-left bg-white text-zinc-950 px-5 py-2 rounded-lg text-sm font-medium hover:bg-zinc-200">View
-                        Gallery</button>
-                    <button
+                        Gallery</a>
+                    <a href="#services"
                         class="results-btn-right text-zinc-400 hover:text-white px-5 py-2 text-sm font-medium flex items-center gap-2">More
-                        details <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                        details <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
 
@@ -467,29 +487,31 @@
                     </div>
                 </div>
 
-                <div class="mt-10 flex gap-4">
-                    <button
-                        class="border border-zinc-700 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-zinc-800">Check
-                        Reviews</button>
-                    <button
-                        class="text-zinc-400 hover:text-white px-5 py-2 text-sm font-medium flex items-center gap-2">More
-                        info <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                <div class="trusted-buttons mt-10 flex gap-4">
+                    <a href="#reviews"
+                        class="trusted-btn-left border border-zinc-700 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-zinc-800">Check
+                        Reviews</a>
+                    <a href="#about"
+                        class="trusted-btn-right text-zinc-400 hover:text-white px-5 py-2 text-sm font-medium flex items-center gap-2">More
+                        info <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="py-24 bg-zinc-950">
+    <section id="reviews" class="py-24 bg-zinc-950">
         <div class="max-w-7xl mx-auto px-6 mb-16">
             <h2 class="reviews-heading text-4xl font-medium tracking-tight text-white mb-4">Real reviews</h2>
             <p class="reviews-paragraph text-zinc-400">What our customers say about our service.</p>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Review 1 -->
-            <div
-                class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="reviews-slider relative">
+                <div class="reviews-track flex gap-6 transition-transform duration-500 ease-out will-change-transform">
+                    <!-- Review 1 -->
+                    <div
+                        class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-2 mb-6 text-white font-medium">
                     <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
                     <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
@@ -500,7 +522,10 @@
                 <p class="text-zinc-300 text-lg mb-8 leading-relaxed">"They cleaned my gutters in two hours and left the
                     garden spotless. Professional and reliable service from start to finish."</p>
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400">SM
+                    <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&amp;w=200&amp;auto=format&amp;fit=crop"
+                            alt="Sarah Mitchell"
+                            class="w-full h-full object-cover">
                     </div>
                     <div>
                         <div class="text-white text-sm font-medium">Sarah Mitchell</div>
@@ -510,11 +535,11 @@
                 <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
                     Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
                 </div>
-            </div>
+                    </div>
 
-            <!-- Review 2 -->
-            <div
-                class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
+                    <!-- Review 2 -->
+                    <div
+                        class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-2 mb-6 text-white font-medium">
                     <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
                     <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
@@ -525,7 +550,10 @@
                 <p class="text-zinc-300 text-lg mb-8 leading-relaxed">"Our driveway looked new again. Worth every penny
                     and they showed up exactly when promised. Highly recommended."</p>
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400">JC
+                    <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&amp;w=200&amp;auto=format&amp;fit=crop"
+                            alt="James Cooper"
+                            class="w-full h-full object-cover">
                     </div>
                     <div>
                         <div class="text-white text-sm font-medium">James Cooper</div>
@@ -535,11 +563,11 @@
                 <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
                     Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
                 </div>
-            </div>
+                    </div>
 
-            <!-- Review 3 -->
-            <div
-                class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
+                    <!-- Review 3 -->
+                    <div
+                        class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-2 mb-6 text-white font-medium">
                     <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
                     <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
@@ -550,16 +578,118 @@
                 <p class="text-zinc-300 text-lg mb-8 leading-relaxed">"No mess, no fuss. They took care of everything
                     and explained what they were doing the whole time. Great team."</p>
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400">ER
+                    <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?q=80&amp;w=200&amp;auto=format&amp;fit=crop"
+                            alt="Emma Richardson"
+                            class="w-full h-full object-cover">
                     </div>
                     <div>
                         <div class="text-white text-sm font-medium">Emma Richardson</div>
                         <div class="text-zinc-500 text-xs">Homeowner, Manchester</div>
                     </div>
                 </div>
-                <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
-                    Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
+                            Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div
+                        class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
+                        <div class="flex items-center gap-2 mb-6 text-white font-medium">
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                        </div>
+                        <p class="text-zinc-300 text-lg mb-8 leading-relaxed">"Quick turnaround and the team was super
+                            polite. The windows have never looked this clear."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&amp;w=200&amp;auto=format&amp;fit=crop"
+                                    alt="Chloe Mason"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">Chloe Mason</div>
+                                <div class="text-zinc-500 text-xs">Homeowner, Stockport</div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
+                            Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+
+                    <!-- Review 5 -->
+                    <div
+                        class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
+                        <div class="flex items-center gap-2 mb-6 text-white font-medium">
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                        </div>
+                        <p class="text-zinc-300 text-lg mb-8 leading-relaxed">"Roof looks brand new. They explained the
+                            process and finished earlier than expected."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&amp;w=200&amp;auto=format&amp;fit=crop"
+                                    alt="Liam Patel"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">Liam Patel</div>
+                                <div class="text-zinc-500 text-xs">Homeowner, Oldham</div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
+                            Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+
+                    <!-- Review 6 -->
+                    <div
+                        class="review-card bg-zinc-900/30 border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors">
+                        <div class="flex items-center gap-2 mb-6 text-white font-medium">
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-white text-white"></i>
+                        </div>
+                        <p class="text-zinc-300 text-lg mb-8 leading-relaxed">"Great communication and fair pricing.
+                            Our driveway has totally transformed."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&amp;w=200&amp;auto=format&amp;fit=crop"
+                                    alt="Maya Brooks"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">Maya Brooks</div>
+                                <div class="text-zinc-500 text-xs">Homeowner, Bury</div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs text-zinc-400">
+                            Read review <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                        </div>
+                    </div>
                 </div>
+
+            </div>
+            <div class="reviews-controls mt-8 flex items-center justify-center gap-3">
+                <button type="button"
+                    class="reviews-prev w-10 h-10 rounded-full bg-zinc-900/80 border border-white/10 text-white flex items-center justify-center hover:bg-zinc-800 transition-colors"
+                    aria-label="Previous reviews">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button type="button"
+                    class="reviews-next w-10 h-10 rounded-full bg-zinc-900/80 border border-white/10 text-white flex items-center justify-center hover:bg-zinc-800 transition-colors"
+                    aria-label="Next reviews">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -579,9 +709,9 @@
             <div class="team-member text-center group">
                 <div
                     class="w-24 h-24 mx-auto rounded-full bg-zinc-900 border border-white/10 overflow-hidden mb-4 relative">
-                    <div class="absolute inset-0 flex items-center justify-center bg-zinc-800 text-zinc-600">
-                        <i data-lucide="user" class="w-10 h-10"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&amp;w=400&amp;auto=format&amp;fit=crop"
+                        alt="Mark Johnson"
+                        class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <h3 class="text-white font-medium text-lg">Mark Johnson</h3>
                 <p class="text-zinc-500 text-sm mb-4">Owner</p>
@@ -597,9 +727,9 @@
             <div class="team-member text-center group">
                 <div
                     class="w-24 h-24 mx-auto rounded-full bg-zinc-900 border border-white/10 overflow-hidden mb-4 relative">
-                    <div class="absolute inset-0 flex items-center justify-center bg-zinc-800 text-zinc-600">
-                        <i data-lucide="user" class="w-10 h-10"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&amp;w=400&amp;auto=format&amp;fit=crop"
+                        alt="David Walsh"
+                        class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <h3 class="text-white font-medium text-lg">David Walsh</h3>
                 <p class="text-zinc-500 text-sm mb-4">Lead Technician</p>
@@ -615,9 +745,9 @@
             <div class="team-member text-center group">
                 <div
                     class="w-24 h-24 mx-auto rounded-full bg-zinc-900 border border-white/10 overflow-hidden mb-4 relative">
-                    <div class="absolute inset-0 flex items-center justify-center bg-zinc-800 text-zinc-600">
-                        <i data-lucide="user" class="w-10 h-10"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&amp;w=400&amp;auto=format&amp;fit=crop"
+                        alt="Tom Bradley"
+                        class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <h3 class="text-white font-medium text-lg">Tom Bradley</h3>
                 <p class="text-zinc-500 text-sm mb-4">Driveway Specialist</p>
@@ -633,9 +763,9 @@
             <div class="team-member text-center group">
                 <div
                     class="w-24 h-24 mx-auto rounded-full bg-zinc-900 border border-white/10 overflow-hidden mb-4 relative">
-                    <div class="absolute inset-0 flex items-center justify-center bg-zinc-800 text-zinc-600">
-                        <i data-lucide="user" class="w-10 h-10"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=400&amp;auto=format&amp;fit=crop"
+                        alt="Paul Fletcher"
+                        class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <h3 class="text-white font-medium text-lg">Paul Fletcher</h3>
                 <p class="text-zinc-500 text-sm mb-4">Window Technician</p>
@@ -652,9 +782,9 @@
             <h3 class="hiring-heading text-2xl font-medium text-white mb-4">We're hiring</h3>
             <p class="hiring-paragraph text-zinc-400 mb-8">Join our team and work with the best equipment and training in the North West.
             </p>
-            <button
+            <a href="#contact"
                 class="hiring-button border border-zinc-700 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-zinc-800 hover:border-zinc-600 transition-all">View
-                jobs</button>
+                jobs</a>
         </div>
     </section>
 
@@ -670,6 +800,9 @@
             <!-- Step 1 -->
             <div
                 class="process-step bg-zinc-900 border border-white/5 p-6 rounded-2xl h-[300px] flex flex-col justify-between relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1450101215322-bf5cd27642fc?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+                    alt="Request a quote"
+                    class="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500">
                 <div
                     class="absolute top-0 right-0 p-32 bg-indigo-500/10 blur-[60px] rounded-full group-hover:bg-indigo-500/20 transition-all">
                 </div>
@@ -686,6 +819,9 @@
             <!-- Step 2 -->
             <div
                 class="process-step bg-zinc-900 border border-white/5 p-6 rounded-2xl h-[300px] flex flex-col justify-between relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+                    alt="Scheduled arrival"
+                    class="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500">
                 <i data-lucide="calendar-check" class="w-8 h-8 text-white mb-4 relative z-10"></i>
                 <div class="relative z-10">
                     <h3 class="text-xl font-medium text-white mb-2">We arrive on schedule</h3>
@@ -698,6 +834,9 @@
             <!-- Step 3 -->
             <div
                 class="process-step bg-zinc-900 border border-white/5 p-6 rounded-2xl h-[300px] flex flex-col justify-between relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+                    alt="Cleaning in progress"
+                    class="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500">
                 <i data-lucide="sparkles" class="w-8 h-8 text-white mb-4 relative z-10"></i>
                 <div class="relative z-10">
                     <h3 class="text-xl font-medium text-white mb-2">We clean thoroughly</h3>
@@ -711,6 +850,9 @@
             <!-- Step 4 -->
             <div
                 class="process-step bg-zinc-900 border border-white/5 p-6 rounded-2xl h-[300px] flex flex-col justify-between relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&amp;w=800&amp;auto=format&amp;fit=crop"
+                    alt="Payment complete"
+                    class="absolute inset-0 w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500">
                 <i data-lucide="credit-card" class="w-8 h-8 text-white mb-4 relative z-10"></i>
                 <div class="relative z-10">
                     <h3 class="text-xl font-medium text-white mb-2">Payment when you're satisfied</h3>
@@ -731,12 +873,12 @@
                 <h2 class="why-heading text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Built on trust, equipped for
                     safety</h2>
                 <div class="flex gap-4">
-                    <button
+                    <a href="#about"
                         class="why-btn-left bg-white text-zinc-950 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-zinc-200">Learn
-                        more</button>
-                    <button
+                        more</a>
+                    <a href="#about"
                         class="why-btn-right text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:text-zinc-300 flex items-center gap-2">View
-                        certifications <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                        certifications <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
 
@@ -973,12 +1115,12 @@
                     <p class="cta-paragraph text-zinc-400 text-lg mb-10 max-w-xl mx-auto">No obligation, no hidden costs. Tell us what
                         needs cleaning and we'll get back to you within 24 hours.</p>
                     <div class="cta-buttons flex flex-col sm:flex-row justify-center gap-4">
-                        <button
+                        <a href="#quote"
                             class="cta-btn-left bg-white text-zinc-950 px-8 py-3 rounded-full text-base font-medium hover:bg-zinc-200 transition-all">Get
-                            quote</button>
-                        <button
+                            quote</a>
+                        <a href="#contact"
                             class="cta-btn-right bg-zinc-800 text-white border border-zinc-700 px-8 py-3 rounded-full text-base font-medium hover:bg-zinc-700 transition-all">Book
-                            appointment</button>
+                            appointment</a>
                     </div>
 
                     <div class="cta-stars mt-12 flex justify-center gap-1 text-emerald-500">
@@ -1016,11 +1158,11 @@
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-zinc-400">
-                    <a href="#" class="hover:text-white transition-colors">Get a quote</a>
-                    <a href="#" class="hover:text-white transition-colors">Our services</a>
-                    <a href="#" class="hover:text-white transition-colors">Before &amp; after</a>
-                    <a href="#" class="hover:text-white transition-colors">About us</a>
-                    <a href="#" class="hover:text-white transition-colors">Contact us</a>
+                    <a href="#quote" class="hover:text-white transition-colors">Get a quote</a>
+                    <a href="#services" class="hover:text-white transition-colors">Our services</a>
+                    <a href="#gallery" class="hover:text-white transition-colors">Before &amp; after</a>
+                    <a href="#about" class="hover:text-white transition-colors">About us</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact us</a>
                 </div>
 
                 <div class="flex gap-4 mt-8 md:mt-0">
@@ -1929,6 +2071,55 @@
                 });
             }
 
+            // Reviews slider
+            const reviewsSlider = document.querySelector('.reviews-slider');
+            if (reviewsSlider) {
+                const track = reviewsSlider.querySelector('.reviews-track');
+                const cards = Array.from(reviewsSlider.querySelectorAll('.review-card'));
+                const prevBtn = document.querySelector('.reviews-controls .reviews-prev');
+                const nextBtn = document.querySelector('.reviews-controls .reviews-next');
+
+                const getPerView = () => {
+                    if (window.matchMedia('(min-width: 1024px)').matches) return 3;
+                    if (window.matchMedia('(min-width: 768px)').matches) return 2;
+                    return 1;
+                };
+
+                let index = 0;
+                const update = () => {
+                    const perView = getPerView();
+                    const maxIndex = Math.max(0, cards.length - perView);
+                    if (index > maxIndex) index = 0;
+                    const slideWidth = cards[0].offsetWidth + 24;
+                    track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+                };
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        const perView = getPerView();
+                        const maxIndex = Math.max(0, cards.length - perView);
+                        index = index - 1 < 0 ? maxIndex : index - 1;
+                        update();
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        const perView = getPerView();
+                        const maxIndex = Math.max(0, cards.length - perView);
+                        index = index + 1 > maxIndex ? 0 : index + 1;
+                        update();
+                    });
+                }
+
+                window.addEventListener('resize', () => {
+                    update();
+                });
+
+                update();
+            }
+
             // Coverage map switching
             const coverageCards = document.querySelectorAll('.coverage-card');
             const coverageFrames = document.querySelectorAll('.coverage-map-frame');
@@ -2030,6 +2221,39 @@
                         }
                     }
                 );
+            }
+
+            // Animate trusted buttons - left from left, right from right
+            const trustedLeftBtn = document.querySelector('.trusted-btn-left');
+            if (trustedLeftBtn) {
+                gsap.from(trustedLeftBtn, {
+                    scrollTrigger: {
+                        trigger: trustedLeftBtn,
+                        start: 'top 80%',
+                        once: true
+                    },
+                    opacity: 0,
+                    x: -40,
+                    duration: 0.7,
+                    ease: 'back.out',
+                    delay: 1.1
+                });
+            }
+
+            const trustedRightBtn = document.querySelector('.trusted-btn-right');
+            if (trustedRightBtn) {
+                gsap.from(trustedRightBtn, {
+                    scrollTrigger: {
+                        trigger: trustedRightBtn,
+                        start: 'top 80%',
+                        once: true
+                    },
+                    opacity: 0,
+                    x: 40,
+                    duration: 0.7,
+                    ease: 'back.out',
+                    delay: 1.1
+                });
             }
 
             // Animate details section heading on scroll
