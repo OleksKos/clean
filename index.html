@@ -113,6 +113,92 @@
             min-width: 100%;
         }
 
+        .quote-wave {
+            perspective: 80px;
+            transform-style: preserve-3d;
+        }
+
+        .quote-wave span {
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.01em;
+            transform-origin: 100% 50%;
+            transform-style: preserve-3d;
+            animation: quote-wave 2.4s ease infinite;
+        }
+
+        .quote-wave span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .quote-wave span:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+
+        .quote-wave span:nth-child(3) {
+            animation-delay: 0.1s;
+        }
+
+        .quote-wave span:nth-child(4) {
+            animation-delay: 0.15s;
+        }
+
+        .quote-wave span:nth-child(5) {
+            animation-delay: 0.2s;
+        }
+
+        .quote-wave span:nth-child(6) {
+            animation-delay: 0.25s;
+        }
+
+        .quote-wave span:nth-child(7) {
+            animation-delay: 0.3s;
+        }
+
+        .quote-wave span:nth-child(8) {
+            animation-delay: 0.35s;
+        }
+
+        .quote-wave span:nth-child(9) {
+            animation-delay: 0.4s;
+        }
+
+        .quote-wave span:nth-child(10) {
+            animation-delay: 0.45s;
+        }
+
+        @keyframes quote-wave {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1) rotateY(0);
+                color: #e5e7eb;
+                text-shadow: 0 0 0 rgba(229, 231, 235, 0);
+            }
+
+            12% {
+                transform: translate3d(2px, -1px, 2px) scale(1.18) rotateY(6deg);
+                color: #c7f9ff;
+            }
+
+            15% {
+                text-shadow: 0 0 1px rgba(199, 249, 255, 0.6);
+            }
+
+            24% {
+                transform: translate3d(0, 0, 0) scale(1) rotateY(0);
+                color: #d1d5db;
+                opacity: 1;
+            }
+
+            36% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.85;
+            }
+        }
+
         .site-nav {
             top: 0;
             left: 50%;
@@ -126,6 +212,8 @@
             top: 1rem;
             width: min(1280px, 92vw);
             border-radius: 1rem;
+            border: 1px solid rgb(255 255 255 / 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
         .mobile-nav {
@@ -160,7 +248,7 @@
 <body class="bg-zinc-950 text-zinc-200 antialiased selection:bg-zinc-700 selection:text-white">
 
     <!-- Navigation -->
-    <nav class="site-nav fixed z-50 border border-white/10 bg-zinc-950/50 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+    <nav class="site-nav fixed z-50 bg-zinc-950/50 backdrop-blur-2xl">
         <div class="px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
@@ -172,14 +260,15 @@
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
                 <a href="#about" class="hover:text-white transition-colors">About us</a>
                 <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="#quote" class="hover:text-white transition-colors">Contact</a>
                 <a href="#services" class="flex items-center gap-1 cursor-pointer hover:text-white transition-colors">
                     Services <i data-lucide="chevron-down" class="w-4 h-4"></i>
                 </a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="#quote" class="hidden md:block text-sm font-medium text-white hover:text-zinc-300">Quote</a>
+                <a href="#quote"
+                    class="quote-wave hidden md:block text-sm font-medium text-white hover:text-zinc-300">Quote</a>
                 <button
                     class="mobile-menu-toggle order-2 md:order-none md:hidden w-10 h-10 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center hover:bg-white/10 transition-colors"
                     type="button" aria-expanded="false" aria-label="Toggle menu">
@@ -916,8 +1005,8 @@
             <div>
                 <span class="kicker-animate text-sm font-medium tracking-widest uppercase mb-4 block">Why choose
                     us</span>
-                <h2 class="why-heading text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Built on trust, equipped for
-                    safety</h2>
+                <h2 class="why-heading text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Built on trust,
+                    <span class="whitespace-nowrap">equipped for safety</span></h2>
                 <div class="flex gap-4">
                     <a href="#about"
                         class="why-btn-left bg-white text-zinc-950 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-zinc-200">Learn
@@ -1208,7 +1297,7 @@
                     <a href="#services" class="hover:text-white transition-colors">Our services</a>
                     <a href="#gallery" class="hover:text-white transition-colors">Before &amp; after</a>
                     <a href="#about" class="hover:text-white transition-colors">About us</a>
-                    <a href="#contact" class="hover:text-white transition-colors">Contact us</a>
+                    <a href="#quote" class="hover:text-white transition-colors">Contact us</a>
                 </div>
 
                 <div class="flex gap-4 mt-8 md:mt-0">
@@ -1298,6 +1387,18 @@
                     if (mobileNav.classList.contains('is-open')) {
                         mobileNav.style.maxHeight = `${mobileNav.scrollHeight}px`;
                     }
+                });
+            }
+
+            // Split quote link text into spans for wave animation
+            const quoteWave = document.querySelector('.quote-wave');
+            if (quoteWave) {
+                const text = quoteWave.textContent;
+                quoteWave.textContent = '';
+                Array.from(text).forEach((character) => {
+                    const span = document.createElement('span');
+                    span.textContent = character === ' ' ? '\u00A0' : character;
+                    quoteWave.appendChild(span);
                 });
             }
 
